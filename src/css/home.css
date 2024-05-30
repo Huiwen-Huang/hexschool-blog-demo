@@ -1,0 +1,582 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1.5;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif, "Noto Sans TC";
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.container {
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+header {
+  border-bottom: 1px solid #f1f1f1;
+}
+header .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 28px 0;
+}
+@media (max-width: 768px) {
+  header .container {
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+}
+header .container .logo {
+  width: 33%;
+  display: flex;
+}
+header .container .logo img {
+  width: 90px;
+  height: 40px;
+}
+@media (max-width: 768px) {
+  header .container .close {
+    display: none;
+  }
+}
+header .container nav {
+  width: 33%;
+}
+@media (max-width: 768px) {
+  header .container nav {
+    z-index: 1000;
+  }
+}
+header .container nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  header .container nav ul {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #fafafa;
+    top: 56px;
+    left: 0%;
+    padding: 8px;
+  }
+}
+header .container nav ul li,
+header .container nav ul .menu-list {
+  position: relative;
+}
+header .container nav ul li::before, header .container nav ul li::after,
+header .container nav ul .menu-list::before,
+header .container nav ul .menu-list::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #919191;
+  -webkit-box-reflect: below 20px;
+  opacity: 0;
+}
+header .container nav ul li::before,
+header .container nav ul .menu-list::before {
+  top: 0;
+  left: 0;
+  border-bottom: none;
+  border-right: none;
+}
+header .container nav ul li::after,
+header .container nav ul .menu-list::after {
+  top: 0;
+  right: 0;
+  border-bottom: none;
+  border-left: none;
+}
+header .container nav ul li:hover::before, header .container nav ul li:hover::after,
+header .container nav ul .menu-list:hover::before,
+header .container nav ul .menu-list:hover::after {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  header .container nav ul li,
+  header .container nav ul .menu-list {
+    margin-bottom: 4px;
+  }
+}
+header .container nav ul li a,
+header .container nav ul .menu-list a {
+  display: block;
+  padding: 4px 8px;
+  color: #000000;
+}
+header .container nav ul li a:hover,
+header .container nav ul .menu-list a:hover {
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  header .container nav ul li a,
+  header .container nav ul .menu-list a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+header .container .menu {
+  width: 33%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+header .container .menu span {
+  display: none;
+  color: #000;
+  padding: 4px 8px;
+}
+header .container .menu span:hover {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  header .container .menu span {
+    display: inline;
+  }
+}
+
+main .banner {
+  display: flex;
+}
+main .banner .about {
+  width: 776px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 24px;
+}
+main .banner .about .info {
+  width: 430px;
+}
+main .banner .about .info h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #3b3b3b;
+}
+main .banner .about .info .detail {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #5b5b5b;
+}
+main .banner .about .info .detail .underline {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/mark.png?raw=true") no-repeat bottom;
+}
+main .banner .about .info .detail .underline-1 {
+  padding: 0 8px;
+}
+main .banner .about .info .detail .underline-2 {
+  padding-left: 8px;
+}
+main .banner .about .info .subInfo {
+  color: #c1c1c1;
+  margin-bottom: 60px;
+}
+main .banner .about .info .socialIcon {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif, "Noto Sans TC";
+}
+main .banner .about_img img {
+  width: 1154px;
+  height: 792px;
+  margin-left: auto;
+}
+main .works .title {
+  width: 372px;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .works .title img {
+  width: 100px;
+  height: 6px;
+}
+main .works .title p {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+main .works .card {
+  height: 800px;
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-work1-bg.png?raw=true");
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .works .card .journey {
+  width: 714px;
+  height: 720px;
+  align-self: end;
+  margin-right: 55px;
+}
+main .works .card .card-info {
+  width: 526px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  padding-top: 80px;
+  padding-bottom: 56px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+main .works .card .card-info .card-info-detail {
+  width: 446px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 40px;
+}
+main .works .card .card-info .card-info-detail h2 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+main .works .card .card-info .card-info-detail p {
+  color: #fff;
+  margin-bottom: 24px;
+}
+main .works .card .card-info .card-info-detail ul {
+  display: flex;
+  width: 323px;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+main .works .card .card-info .card-info-detail ul li {
+  padding: 4px 12px;
+  background-color: #fff;
+  border-radius: 16px;
+}
+main .works .card .card-info .btnBox {
+  width: 446px;
+}
+main .works .card .card-info .btnBox .btn {
+  margin: 0 auto;
+  width: 176px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 5px;
+}
+main .works .card .card-info .btnBox .btn p {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+main .works .card .card-info .btnBox .btn .material-symbols-outlined {
+  color: #fff;
+}
+
+footer {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true");
+}
+@media (max-width: 768px) {
+  footer {
+    background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true") center no-repeat cover;
+  }
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 0;
+}
+@media (max-width: 768px) {
+  footer .container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 34.5px;
+  }
+}
+footer .container .info {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  footer .container .info {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+}
+footer .container .info img {
+  width: 120px;
+  margin-bottom: 24px;
+}
+footer .container .info .text {
+  font-size: 20px;
+  color: #3b3b3b;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  footer .container .info .text {
+    font-size: 16px;
+  }
+}
+footer .container .info .email {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #919191;
+}
+@media (max-width: 768px) {
+  footer .container .info .email {
+    font-size: 16px;
+  }
+}
+footer .container .btn {
+  width: 25%;
+}
+@media (max-width: 768px) {
+  footer .container .btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+footer .container .btn ul {
+  width: 306px;
+  height: 264px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer .container .btn ul li a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #c1c1c1;
+  padding: 8px 0;
+  padding-left: 24px;
+}
+@media (max-width: 768px) {
+  footer .container .btn ul li a {
+    padding: 4px 0;
+    padding-left: 24px;
+  }
+}
+footer .container .btn ul li img {
+  color: #3b3b3b;
+}
+footer .container .btn ul li p {
+  color: #3b3b3b;
+  position: relative;
+}
+footer .container .btn ul li p::after {
+  /* 添加這塊 */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #3b3b3b;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+footer .container .btn ul li p:hover::after {
+  /* 添加這塊 */
+  transform: scaleX(1);
+}
+footer .container .btn ul .form {
+  background-color: #000000;
+}
+footer .container .btn ul .form .list {
+  color: #fff;
+}
+footer .container .btn ul .form p {
+  color: #fff;
+  position: relative;
+}
+footer .container .btn ul .form p::after {
+  /* 添加這塊 */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+footer .container .btn ul .form p:hover::after {
+  /* 添加這塊 */
+  transform: scaleX(1);
+}/*# sourceMappingURL=home.css.map */

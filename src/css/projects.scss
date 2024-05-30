@@ -1,0 +1,534 @@
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: Noto Sans, sans-serif;
+  // 無論字體為何，都要備著 sans-serif (無襯線字體），確保所有裝置都能正確瀏覽唷。
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.container {
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+//以上為 css reset
+header {
+  border-bottom: 1px solid #f1f1f1;
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 28px 0;
+    @include mobile {
+      justify-content: space-between;
+      padding: 8px 12px;
+    }
+    .logo {
+      width: 33%;
+      display: flex;
+      img {
+        width: 90px;
+        height: 40px;
+      }
+    }
+    .close {
+      @include mobile {
+        display: none;
+      }
+    }
+    nav {
+      width: 33%;
+      @include mobile {
+        z-index: 1000;
+      }
+      ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        @include mobile {
+          width: 100%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          background-color: #fafafa;
+          top: 56px;
+          left: 0%;
+          padding: 8px;
+        }
+        .menu-list {
+          a {
+            color: #000;
+            padding: 4px 8px;
+            position: relative;
+            &:hover {
+              font-weight: 600;
+            }
+            @include mobile {
+              padding-top: 8px;
+              padding-bottom: 8px;
+            }
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              width: 8px;
+              height: 8px;
+              border: 1px solid #919191;
+              -webkit-box-reflect: below 16px;
+              opacity: 0;
+            }
+            &::before {
+              top: 0;
+              left: 0;
+              border-bottom: none;
+              border-right: none;
+            }
+            &::after {
+              top: 0;
+              right: 0;
+              border-bottom: none;
+              border-left: none;
+            }
+            &:hover::before,
+            &:hover::after {
+              opacity: 1;
+            }
+            @include mobile {
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+    .menu {
+      width: 33%;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      span {
+        display: none;
+        color: #000;
+        padding: 4px 8px;
+        &:hover {
+          background-color: #f1f1f1;
+          border-radius: 8px;
+        }
+        @include mobile {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+.banner {
+  max-width: 1920px;
+  padding: 80px 0;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .slogan {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #1e1e1e;
+    padding: 59px 71px;
+    margin-bottom: 24px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/quote-left.png?raw=true");
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/quote-right.png?raw=true");
+      bottom: 0;
+      right: 0;
+    }
+    .underline {
+      display: inline-block;
+      width: 148px;
+      background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/mark.png?raw=true")
+        no-repeat bottom;
+    }
+  }
+  .info {
+    ul {
+      width: 636px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        width: 298px;
+        text-align: center;
+        h2 {
+          color: #5b5b5b;
+          margin-bottom: 8px;
+          position: relative;
+          padding-bottom: 4px;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            left: 138px;
+            top: 24px;
+            border-bottom: 2px solid #c1c1c1;
+          }
+        }
+        p {
+          color: #3b3b3b;
+        }
+      }
+    }
+  }
+}
+.container {
+  padding: 0;
+  .projects {
+    width: 100%;
+    padding: 120px 0;
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .card {
+        margin-bottom: 80px;
+        img {
+          width: 636px;
+          height: 400px;
+          margin-bottom: 16px;
+          border-radius: 8px;
+          display: block;
+          outline: 1px solid #f0f0f0;
+        }
+        .content {
+          margin-left: 16px;
+          h2 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 8px;
+          }
+          p {
+            // font-size: 16px;
+            // line-height: 1.5;
+            // 系統預設
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #919191;
+          }
+          .tag {
+            display: flex;
+            justify-content: start;
+            li {
+              // font-size: 16px;
+              // line-height: 1.5;
+              // 系統預設
+              font-weight: 400;
+              background-color: #f1f1f1;
+              padding: 4px 12px;
+              margin-right: 16px;
+              border-radius: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+footer {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true");
+  @include mobile {
+    background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true")
+      center no-repeat cover;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0;
+    @include mobile {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 34.5px;
+    }
+    .info {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include mobile {
+        width: 100%;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      img {
+        width: 120px;
+        margin-bottom: 24px;
+      }
+      .text {
+        font-size: 20px;
+        color: #3b3b3b;
+        margin-bottom: 24px;
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+      .email {
+        font-size: 20px;
+        line-height: 1.2;
+        color: #919191;
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+    }
+    .btn {
+      width: 25%;
+      @include mobile {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      ul {
+        // width: 100%;
+        width: 306px;
+        height: 264px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        li {
+          a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #c1c1c1;
+            padding: 8px 0;
+            padding-left: 24px;
+            @include mobile {
+              padding: 4px 0;
+              padding-left: 24px;
+            }
+          }
+          img {
+            color: #3b3b3b;
+          }
+          p {
+            color: #3b3b3b;
+            position: relative;
+            &::after {
+              /* 添加這塊 */
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: 1px;
+              background-color: #3b3b3b;
+              transform: scaleX(0);
+              transition: transform 0.3s ease;
+            }
+            &:hover::after {
+              /* 添加這塊 */
+              transform: scaleX(1);
+            }
+          }
+        }
+        .form {
+          background-color: #000000;
+          .list {
+            color: #fff;
+          }
+          p {
+            color: #fff;
+            position: relative;
+            &::after {
+              /* 添加這塊 */
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: 1px;
+              background-color: #fff;
+              transform: scaleX(0);
+              transition: transform 0.3s ease;
+            }
+            &:hover::after {
+              /* 添加這塊 */
+              transform: scaleX(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
