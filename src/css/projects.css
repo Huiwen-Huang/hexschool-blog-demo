@@ -217,6 +217,7 @@ header .container nav ul {
 }
 header .container nav ul .menu-list a {
   color: #000;
+  display: block;
   padding: 4px 8px;
   position: relative;
 }
@@ -280,8 +281,9 @@ header .container .menu span:hover {
   }
 }
 
-.banner {
-  max-width: 1920px;
+main .banner,
+.container .banner {
+  width: 100%;
   padding: 80px 0;
   background-color: #fafafa;
   display: flex;
@@ -289,8 +291,15 @@ header .container .menu span:hover {
   justify-content: center;
   align-items: center;
 }
-.banner .slogan {
-  width: 700px;
+@media (max-width: 768px) {
+  main .banner,
+  .container .banner {
+    padding: 40px 0;
+  }
+}
+main .banner .slogan,
+.container .banner .slogan {
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -302,7 +311,8 @@ header .container .menu span:hover {
   margin-bottom: 24px;
   position: relative;
 }
-.banner .slogan::before {
+main .banner .slogan::before,
+.container .banner .slogan::before {
   content: "";
   position: absolute;
   width: 72px;
@@ -311,7 +321,8 @@ header .container .menu span:hover {
   top: 0;
   left: 0;
 }
-.banner .slogan::after {
+main .banner .slogan::after,
+.container .banner .slogan::after {
   content: "";
   position: absolute;
   width: 72px;
@@ -320,28 +331,74 @@ header .container .menu span:hover {
   bottom: 0;
   right: 0;
 }
-.banner .slogan .underline {
+main .banner .slogan .underline,
+.container .banner .slogan .underline {
   display: inline-block;
   width: 148px;
   background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/mark.png?raw=true") no-repeat bottom;
 }
-.banner .info ul {
+@media (max-width: 768px) {
+  main .banner .slogan,
+  .container .banner .slogan {
+    width: 70%;
+    text-align: center;
+    font-size: 20px;
+    padding: 0;
+    padding-top: 64px;
+    margin-bottom: 40px;
+  }
+  main .banner .slogan::before,
+  .container .banner .slogan::before {
+    content: "";
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/quote-left.png?raw=true");
+    top: -5%;
+    left: 40%;
+  }
+  main .banner .slogan::after,
+  .container .banner .slogan::after {
+    display: none;
+  }
+}
+main .banner .info ul,
+.container .banner .info ul {
   width: 636px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.banner .info ul li {
+@media (max-width: 768px) {
+  main .banner .info ul,
+  .container .banner .info ul {
+    width: 68%;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+}
+main .banner .info ul li,
+.container .banner .info ul li {
   width: 298px;
   text-align: center;
 }
-.banner .info ul li h2 {
+@media (max-width: 768px) {
+  main .banner .info ul li,
+  .container .banner .info ul li {
+    width: 100%;
+  }
+}
+main .banner .info ul li h2,
+.container .banner .info ul li h2 {
   color: #5b5b5b;
   margin-bottom: 8px;
   position: relative;
   padding-bottom: 4px;
 }
-.banner .info ul li h2::after {
+main .banner .info ul li h2::after,
+.container .banner .info ul li h2::after {
   content: "";
   position: absolute;
   width: 24px;
@@ -349,58 +406,284 @@ header .container .menu span:hover {
   top: 24px;
   border-bottom: 2px solid #c1c1c1;
 }
-.banner .info ul li p {
+@media (max-width: 768px) {
+  main .banner .info ul li h2::after,
+  .container .banner .info ul li h2::after {
+    left: 122px;
+  }
+}
+main .banner .info ul li p,
+.container .banner .info ul li p {
   color: #3b3b3b;
 }
-
-.container {
-  padding: 0;
-}
-.container .projects {
+main .wrap,
+.container .wrap {
   width: 100%;
   padding: 120px 0;
 }
-.container .projects ul {
+@media (max-width: 768px) {
+  main .wrap,
+  .container .wrap {
+    padding: 80px 0;
+  }
+}
+main .wrap .projects,
+.container .wrap .projects {
+  width: 100%;
+}
+main .wrap .projects ul,
+.container .wrap .projects ul {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.container .projects ul .card {
+main .wrap .projects ul .card,
+.container .wrap .projects ul .card {
+  width: 48%;
   margin-bottom: 80px;
+  border: 0;
 }
-.container .projects ul .card img {
-  width: 636px;
+@media (max-width: 768px) {
+  main .wrap .projects ul .card,
+  .container .wrap .projects ul .card {
+    width: 100%;
+    margin-bottom: 48px;
+  }
+}
+main .wrap .projects ul .card button,
+.container .wrap .projects ul .card button {
+  width: 100%;
+  padding: 0;
+}
+main .wrap .projects ul .card button .img1,
+.container .wrap .projects ul .card button .img1 {
+  height: 400px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  display: block;
+  outline: 1px solid #f0f0f0;
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/work-image1.png?raw=true") center;
+}
+@media (max-width: 768px) {
+  main .wrap .projects ul .card button .img1,
+  .container .wrap .projects ul .card button .img1 {
+    height: 224px;
+    background-size: cover;
+  }
+}
+main .wrap .projects ul .card .img,
+.container .wrap .projects ul .card .img {
   height: 400px;
   margin-bottom: 16px;
   border-radius: 8px;
   display: block;
   outline: 1px solid #f0f0f0;
 }
-.container .projects ul .card .content {
+@media (max-width: 768px) {
+  main .wrap .projects ul .card .img,
+  .container .wrap .projects ul .card .img {
+    height: 224px;
+    background-size: cover;
+  }
+}
+main .wrap .projects ul .card .img2,
+.container .wrap .projects ul .card .img2 {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/work-image2.png?raw=true") center;
+}
+main .wrap .projects ul .card .img3,
+.container .wrap .projects ul .card .img3 {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/work-image3.png?raw=true") center;
+}
+main .wrap .projects ul .card .img4,
+.container .wrap .projects ul .card .img4 {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/work-image4.png?raw=true") center;
+}
+main .wrap .projects ul .card .img5,
+.container .wrap .projects ul .card .img5 {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/work-image5.png?raw=true") center;
+}
+main .wrap .projects ul .card .img6,
+.container .wrap .projects ul .card .img6 {
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/work-image6.png?raw=true") center;
+}
+main .wrap .projects ul .card .content,
+.container .wrap .projects ul .card .content {
   margin-left: 16px;
 }
-.container .projects ul .card .content h2 {
+main .wrap .projects ul .card .content h2,
+.container .wrap .projects ul .card .content h2 {
   font-size: 28px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 8px;
 }
-.container .projects ul .card .content p {
+@media (max-width: 768px) {
+  main .wrap .projects ul .card .content h2,
+  .container .wrap .projects ul .card .content h2 {
+    font-size: 20px;
+  }
+}
+main .wrap .projects ul .card .content p,
+.container .wrap .projects ul .card .content p {
   font-weight: 400;
   margin-bottom: 24px;
   color: #919191;
 }
-.container .projects ul .card .content .tag {
+@media (max-width: 768px) {
+  main .wrap .projects ul .card .content p,
+  .container .wrap .projects ul .card .content p {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+main .wrap .projects ul .card .content .tag,
+.container .wrap .projects ul .card .content .tag {
   display: flex;
   justify-content: start;
 }
-.container .projects ul .card .content .tag li {
+main .wrap .projects ul .card .content .tag li,
+.container .wrap .projects ul .card .content .tag li {
   font-weight: 400;
   background-color: #f1f1f1;
   padding: 4px 12px;
   margin-right: 16px;
   border-radius: 16px;
+}
+main .wrap .projects ul .card5,
+main .wrap .projects ul .card6,
+.container .wrap .projects ul .card5,
+.container .wrap .projects ul .card6 {
+  margin-bottom: 72px;
+}
+main .wrap .projects ul .modal,
+.container .wrap .projects ul .modal {
+  left: -17%;
+}
+main .wrap .projects ul .modal .modal-content,
+.container .wrap .projects ul .modal .modal-content {
+  width: 1076px;
+}
+main .wrap .projects ul .modal .modal-content .modal-header,
+.container .wrap .projects ul .modal .modal-content .modal-header {
+  width: 100%;
+  border-bottom: 0px;
+}
+main .wrap .projects ul .modal .modal-content .modal-body,
+.container .wrap .projects ul .modal .modal-content .modal-body {
+  width: 100%;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .modal-banner,
+.container .wrap .projects ul .modal .modal-content .modal-body .modal-banner {
+  margin-bottom: 40px;
+  text-align: center;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .modal-banner h2,
+.container .wrap .projects ul .modal .modal-content .modal-body .modal-banner h2 {
+  color: #3b3b3b;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .modal-banner h3,
+.container .wrap .projects ul .modal .modal-content .modal-body .modal-banner h3 {
+  color: #919191;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .description,
+.container .wrap .projects ul .modal .modal-content .modal-body .description {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .description p,
+.container .wrap .projects ul .modal .modal-content .modal-body .description p {
+  color: #1e1e1e;
+  display: block;
+  width: 50%;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .description ul,
+.container .wrap .projects ul .modal .modal-content .modal-body .description ul {
+  width: 35%;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .description ul li,
+.container .wrap .projects ul .modal .modal-content .modal-body .description ul li {
+  color: #5b5b5b;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .main-info,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .main-info {
+  margin-bottom: 56px;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .main-info img,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .main-info img {
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .main-info h2,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .main-info h2 {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1e1e1e;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .main-info p,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .main-info p {
+  color: #5b5b5b;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .sub-info img,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .sub-info img {
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .sub-info h2,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .sub-info h2 {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1e1e1e;
+}
+main .wrap .projects ul .modal .modal-content .modal-body .detail .sub-info p,
+.container .wrap .projects ul .modal .modal-content .modal-body .detail .sub-info p {
+  color: #5b5b5b;
+}
+main .wrap .page,
+.container .wrap .page {
+  width: 152px;
+  margin: 0 auto;
+}
+main .wrap .page ul,
+.container .wrap .page ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+main .wrap .page ul li a,
+.container .wrap .page ul li a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  color: #3b3b3b;
+  text-align: center;
+}
+main .wrap .page ul li a:hover,
+.container .wrap .page ul li a:hover {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 4px;
 }
 
 footer {
